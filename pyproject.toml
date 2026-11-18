@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wing-coding-agent"
+version = "0.1.0"
+description = "A terminal coding agent powered by Deep Agents and Azure OpenAI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "deepagents>=0.7.39,<0.8",
+    "httpx>=0.28,<1",
+    "langchain>=1.5,<2",
+    "langchain-openai>=1.8.1,<2",
+    "langgraph>=1.2.22,<2",
+    "langsmith>=0.15,<1",
+    "openai>=2.54,<3",
+]
+
+[project.scripts]
+wing = "wing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wing = ["skills/*/SKILL.md", "skills/LICENSE"]
